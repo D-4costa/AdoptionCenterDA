@@ -1,0 +1,56 @@
+@using AdoptionCenterDA.Web.Models
+
+<div class="pet-card">
+
+    <img src="@Pet.ImageUrl"
+         alt="@Pet.Name" />
+
+
+    <div class="pet-card-content">
+
+        <h3>
+            @Pet.Name
+        </h3>
+
+
+        <p>
+            <strong>Breed:</strong> @Pet.Breed
+        </p>
+
+
+        <p>
+            <strong>Age:</strong> @Pet.Age year(s)
+        </p>
+
+
+        <p>
+            <strong>Gender:</strong> @Pet.Gender
+        </p>
+
+
+        @if (Pet.IsAdopted)
+        {
+            <button class="disabled-button" disabled>
+                Already Adopted
+            </button>
+        }
+        else
+        {
+            <a class="primary-button"
+               href="/details/@Pet.Id">
+                View Details
+            </a>
+        }
+
+
+    </div>
+
+</div>
+
+
+@code {
+
+    [Parameter]
+    public Pet Pet { get; set; } = default!;
+
+}

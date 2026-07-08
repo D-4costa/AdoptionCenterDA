@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "AdoptionCenterDA.Web/1.0.0": {
+        "runtime": {
+          "AdoptionCenterDA.Web.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AdoptionCenterDA.Web/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

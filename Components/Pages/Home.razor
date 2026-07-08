@@ -1,0 +1,40 @@
+﻿@page "/"
+
+@inject PetService PetService
+
+<PageTitle>Adoption Center</PageTitle>
+
+<div class="home-container">
+
+    <h1>
+        Welcome to Adoption Center 🐾
+    </h1>
+
+    <p>
+        Find your new best friend and give a pet a loving home.
+    </p>
+
+
+    <div class="pets-grid">
+
+        @foreach (var pet in pets)
+        {
+            <PetCard Pet="pet" />
+        }
+
+    </div>
+
+</div>
+
+
+@code {
+
+    private List<Pet> pets = new();
+
+
+    protected override void OnInitialized()
+    {
+        pets = PetService.GetAllPets();
+    }
+
+}

@@ -1,0 +1,82 @@
+@page "/details/{Id:int}"
+
+@inject PetService PetService
+
+<PageTitle>Pet Details | Adoption Center</PageTitle>
+
+@if (pet == null)
+{
+    <div class="page-container">
+        <h1>Pet not found</h1>
+        <p>We could not find this pet.</p>
+    </div>
+}
+else
+{
+    <div class="details-container">
+
+        <div class="details-image">
+            <img src="@pet.ImageUrl" alt="@pet.Name" />
+        </div>
+
+
+        <div class="details-content">
+
+            <h1>@pet.Name</h1>
+
+            <p class="pet-type">
+                @pet.Type
+            </p>
+
+            <p>
+                <strong>Breed:</strong> @pet.Breed
+            </p>
+
+            <p>
+                <strong>Age:</strong> @pet.Age years old
+            </p>
+
+            <p>
+                <strong>Gender:</strong> @pet.Gender
+            </p>
+
+            <p>
+                @pet.Description
+            </p>
+
+
+            @if (pet.IsAdopted)
+            {
+                <button class="disabled-button">
+                    Already Adopted
+                </button>
+            }
+            else
+            {
+                <button class="adopt-button">
+                    Request Adoption
+                </button>
+            }
+
+
+        </div>
+
+    </div>
+}
+
+
+@code {
+
+    [Parameter]
+    public int Id { get; set; }
+
+
+    private Pet? pet;
+
+
+    protected override void OnInitialized()
+    {
+        pet = PetService.GetPetById(Id);
+    }
+
+}

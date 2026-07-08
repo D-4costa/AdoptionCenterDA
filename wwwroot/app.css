@@ -1,0 +1,501 @@
+/* ======================================
+   Adoption Center Modern Theme
+   ====================================== */
+
+   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+   :root {
+   
+       --pink: #f5b6c8;
+       --pink-dark: #e58ba8;
+       --pink-soft: #fff0f5;
+   
+       --green: #a8d8b9;
+       --green-dark: #75b88a;
+   
+       --cream: #fffaf7;
+       --white: #ffffff;
+   
+       --text: #51464b;
+   
+       --shadow:
+           0 15px 35px rgba(214, 150, 170, .18);
+   
+   }
+   
+   
+   
+   * {
+       box-sizing:border-box;
+   }
+   
+   
+   
+   html, body {
+   
+       margin:0;
+   
+       padding:0;
+   
+       font-family:'Poppins', sans-serif;
+   
+       background:
+           linear-gradient(
+               180deg,
+               #fff8fb,
+               #ffffff
+           );
+   
+       color:var(--text);
+   
+   }
+   
+   
+   
+   a {
+   
+       text-decoration:none;
+   
+   }
+   
+   
+   
+   /* ==========================
+      Header
+      ========================== */
+   
+   
+   .main-header {
+   
+       background:
+           rgba(255,255,255,.85);
+   
+       backdrop-filter:blur(12px);
+   
+       padding:18px 60px;
+   
+       display:flex;
+   
+       justify-content:space-between;
+   
+       align-items:center;
+   
+       position:sticky;
+   
+       top:0;
+   
+       z-index:100;
+   
+       box-shadow:
+   
+           0 5px 20px rgba(0,0,0,.05);
+   
+   }
+   
+   
+   
+   .logo {
+   
+       font-size:1.8rem;
+   
+       font-weight:700;
+   
+       color:var(--pink-dark);
+   
+   }
+   
+   
+   
+   .navigation {
+   
+       display:flex;
+   
+       gap:35px;
+   
+   }
+   
+   
+   
+   .nav-link {
+   
+       font-weight:500;
+   
+       color:var(--text);
+   
+       transition:.3s;
+   
+   }
+   
+   
+   
+   .nav-link:hover {
+   
+       color:var(--pink-dark);
+   
+   }
+   
+   
+   
+   /* ==========================
+      Hero
+      ========================== */
+   
+   
+   .hero-section {
+   
+       min-height:520px;
+   
+       margin:40px auto;
+   
+       max-width:1200px;
+   
+       border-radius:40px;
+   
+   
+       display:flex;
+   
+       align-items:center;
+   
+       justify-content:center;
+   
+   
+       background:
+   
+       linear-gradient(
+           135deg,
+           #ffe8ef,
+           #ffffff,
+           #e8f7ed
+       );
+   
+   
+       padding:50px;
+   
+   
+   }
+   
+   
+   
+   .hero-content {
+   
+       text-align:center;
+   
+       max-width:750px;
+   
+   }
+   
+   
+   
+   .hero-content h1 {
+   
+       font-size:3.5rem;
+   
+       line-height:1.2;
+   
+       color:#d87899;
+   
+   }
+   
+   
+   
+   .hero-content p {
+   
+       font-size:1.15rem;
+   
+       margin-top:20px;
+   
+       color:#665961;
+   
+   }
+   
+   
+   
+   /* ==========================
+      Buttons
+      ========================== */
+   
+   
+   .hero-buttons {
+   
+       margin-top:35px;
+   
+       display:flex;
+   
+       justify-content:center;
+   
+       gap:20px;
+   
+   }
+   
+   
+   
+   .primary-button,
+   .secondary-button {
+   
+   
+       padding:14px 32px;
+   
+       border-radius:50px;
+   
+       font-weight:600;
+   
+       transition:.3s;
+   
+   }
+   
+   
+   
+   .primary-button {
+   
+       background:var(--pink);
+   
+       color:white;
+   
+   }
+   
+   
+   
+   .primary-button:hover {
+   
+       background:var(--pink-dark);
+   
+       transform:translateY(-3px);
+   
+   }
+   
+   
+   
+   .secondary-button {
+   
+       background:var(--green);
+   
+       color:white;
+   
+   }
+   
+   
+   
+   .secondary-button:hover {
+   
+       background:var(--green-dark);
+   
+       transform:translateY(-3px);
+   
+   }
+   
+   
+   
+   
+   /* ==========================
+      Sections
+      ========================== */
+   
+   
+   .featured-section,
+   .page-container {
+   
+       max-width:1200px;
+   
+       margin:auto;
+   
+       padding:40px 25px;
+   
+   }
+   
+   
+   
+   .featured-section h2 {
+   
+       text-align:center;
+   
+       font-size:2.2rem;
+   
+       color:#d87899;
+   
+   }
+   
+   
+   
+   /* ==========================
+      Pet Cards
+      ========================== */
+   
+   
+   .pet-grid {
+   
+       display:grid;
+   
+       grid-template-columns:
+   
+       repeat(
+           auto-fit,
+           minmax(280px,1fr)
+       );
+   
+   
+       gap:35px;
+   
+   }
+   
+   
+   
+   .pet-card {
+   
+       background:white;
+   
+       border-radius:30px;
+   
+       overflow:hidden;
+   
+       box-shadow:var(--shadow);
+   
+       transition:.35s;
+   
+   }
+   
+   
+   
+   .pet-card:hover {
+   
+       transform:
+   
+       translateY(-10px);
+   
+   }
+   
+   
+   
+   .pet-card img {
+   
+       width:100%;
+   
+       height:280px;
+   
+       object-fit:cover;
+   
+   }
+   
+   
+   
+   .pet-card-content {
+   
+       padding:25px;
+   
+   }
+   
+   
+   
+   .pet-card h3 {
+   
+       font-size:1.5rem;
+   
+       color:#d87899;
+   
+   }
+   
+   
+   
+   .pet-card p {
+   
+       margin:8px 0;
+   
+   }
+   
+   
+   
+   
+   /* ==========================
+      Details
+      ========================== */
+   
+   
+   .details-container {
+   
+       max-width:1000px;
+   
+       margin:60px auto;
+   
+       background:white;
+   
+       border-radius:35px;
+   
+       padding:40px;
+   
+       display:grid;
+   
+       grid-template-columns:1fr 1fr;
+   
+       gap:40px;
+   
+       box-shadow:var(--shadow);
+   
+   }
+   
+   
+   
+   .details-image img {
+   
+       width:100%;
+   
+       border-radius:30px;
+   
+   }
+   
+   
+   
+   /* ==========================
+      Footer
+      ========================== */
+   
+   
+   .main-footer {
+   
+       background:
+   
+       #fff0f5;
+   
+       padding:25px;
+   
+       text-align:center;
+   
+       margin-top:50px;
+   
+   }
+   
+   
+   
+   /* ==========================
+      Mobile
+      ========================== */
+   
+   
+   @media(max-width:768px){
+   
+   
+       .main-header {
+   
+           padding:20px;
+   
+           flex-direction:column;
+   
+           gap:20px;
+   
+       }
+   
+   
+       .hero-content h1 {
+   
+           font-size:2.3rem;
+   
+       }
+   
+   
+       .details-container {
+   
+           grid-template-columns:1fr;
+   
+       }
+   
+   
+   }
