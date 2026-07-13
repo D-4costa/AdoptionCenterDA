@@ -3,26 +3,38 @@ using AdoptionCenterDA.Web.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddRazorComponents()
+
+// Add Razor components
+builder.Services
+    .AddRazorComponents()
     .AddInteractiveServerComponents();
 
-builder.Services.AddSingleton<PetService>();
+
+// Register services
+builder.Services.AddSingleton<IPetService, PetService>();
+
 
 var app = builder.Build();
 
+
+// Configure HTTP request pipeline
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Error", createScopeForErrors: true);
+    app.UseExceptionHandler("/Error");
+
     app.UseHsts();
 }
 
-// app.UseHttpsRedirection();
+
+app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 
 app.UseAntiforgery();
 
+
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
+
 
 app.Run();
