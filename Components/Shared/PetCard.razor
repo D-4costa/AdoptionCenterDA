@@ -2,8 +2,27 @@
 
 <div class="pet-card">
 
-    <img src="@Pet.ImageUrl"
-         alt="@Pet.Name" />
+    <div class="pet-image-container">
+
+        <img src="@Pet.ImageUrl"
+             alt="@Pet.Name" />
+
+        <div class="pet-badges">
+
+            <PetBadge Type="@Pet.Type" />
+
+            @if (Pet.IsAdopted)
+            {
+                <PetBadge Type="Adopted" />
+            }
+            else
+            {
+                <PetBadge Type="Available" />
+            }
+
+        </div>
+
+    </div>
 
 
     <div class="pet-card-content">
@@ -12,41 +31,47 @@
             @Pet.Name
         </h3>
 
+        <p class="pet-breed">
 
-        <p>
             <strong>Breed:</strong> @Pet.Breed
+
         </p>
 
-
         <p>
+
             <strong>Age:</strong> @Pet.Age year(s)
-        </p>
 
+        </p>
 
         <p>
+
             <strong>Gender:</strong> @Pet.Gender
+
         </p>
 
+        <hr />
 
         @if (Pet.IsAdopted)
         {
             <button class="disabled-button" disabled>
+
                 Already Adopted
+
             </button>
         }
         else
         {
             <a class="primary-button"
                href="/details/@Pet.Id">
-                View Details
+
+                Meet @Pet.Name ❤
+
             </a>
         }
-
 
     </div>
 
 </div>
-
 
 @code {
 
