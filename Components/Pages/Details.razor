@@ -1,82 +1,135 @@
 @page "/details/{Id:int}"
 
-@inject PetService PetService
-
 <PageTitle>Pet Details | Adoption Center</PageTitle>
 
-@if (pet == null)
+
+@if (Pet == null)
 {
-    <div class="page-container">
-        <h1>Pet not found</h1>
-        <p>We could not find this pet.</p>
+    <div class="page-container empty-state">
+
+        <h1>
+            Pet not found 🐾
+        </h1>
+
+        <p>
+            We could not find the pet you are looking for.
+        </p>
+
+        <a href="/" class="secondary-button">
+
+            Return Home
+
+        </a>
+
     </div>
 }
 else
 {
+
     <div class="details-container">
 
+
         <div class="details-image">
-            <img src="@pet.ImageUrl" alt="@pet.Name" />
+
+            <img src="@Pet.ImageUrl"
+                 alt="@Pet.Name" />
+
         </div>
+
 
 
         <div class="details-content">
 
-            <h1>@pet.Name</h1>
 
-            <p class="pet-type">
-                @pet.Type
+            <div class="details-badges">
+
+                <PetBadge Type="@Pet.Type" />
+
+                @if (Pet.IsAdopted)
+                {
+                    <PetBadge Type="Adopted" />
+                }
+                else
+                {
+                    <PetBadge Type="Available" />
+                }
+
+            </div>
+
+
+
+            <h1>
+                @Pet.Name
+            </h1>
+
+
+
+            <p class="pet-description">
+
+                @Pet.Description
+
             </p>
 
-            <p>
-                <strong>Breed:</strong> @pet.Breed
-            </p>
-
-            <p>
-                <strong>Age:</strong> @pet.Age years old
-            </p>
-
-            <p>
-                <strong>Gender:</strong> @pet.Gender
-            </p>
-
-            <p>
-                @pet.Description
-            </p>
 
 
-            @if (pet.IsAdopted)
+            <div class="pet-information">
+
+
+                <p>
+                    <strong>Breed:</strong>
+                    @Pet.Breed
+                </p>
+
+
+                <p>
+                    <strong>Age:</strong>
+                    @Pet.Age year(s)
+                </p>
+
+
+                <p>
+                    <strong>Gender:</strong>
+                    @Pet.Gender
+                </p>
+
+
+            </div>
+
+
+
+            @if (Pet.IsAdopted)
             {
-                <button class="disabled-button">
-                    Already Adopted
+                <button class="disabled-button"
+                        disabled>
+
+                    Already Adopted ❤️
+
                 </button>
             }
             else
             {
                 <button class="adopt-button">
-                    Request Adoption
+
+                    Request Adoption 🏡
+
                 </button>
             }
 
 
+
+            <br />
+            <br />
+
+            <a href="/" class="secondary-button">
+
+                ← Back to Pets
+
+            </a>
+
+
         </div>
 
+
     </div>
-}
-
-
-@code {
-
-    [Parameter]
-    public int Id { get; set; }
-
-
-    private Pet? pet;
-
-
-    protected override void OnInitialized()
-    {
-        pet = PetService.GetPetById(Id);
-    }
 
 }
