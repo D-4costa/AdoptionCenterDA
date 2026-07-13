@@ -1,501 +1,726 @@
-/* ======================================
-   Adoption Center Modern Theme
-   ====================================== */
+/* ==========================================
+   Adoption Center - Main Theme
+   Colors:
+   Pink pastel / White / Green
+   ========================================== */
 
-   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 
-   :root {
-   
-       --pink: #f5b6c8;
-       --pink-dark: #e58ba8;
-       --pink-soft: #fff0f5;
-   
-       --green: #a8d8b9;
-       --green-dark: #75b88a;
-   
-       --cream: #fffaf7;
-       --white: #ffffff;
-   
-       --text: #51464b;
-   
-       --shadow:
-           0 15px 35px rgba(214, 150, 170, .18);
-   
-   }
-   
-   
-   
-   * {
-       box-sizing:border-box;
-   }
-   
-   
-   
-   html, body {
-   
-       margin:0;
-   
-       padding:0;
-   
-       font-family:'Poppins', sans-serif;
-   
-       background:
-           linear-gradient(
-               180deg,
-               #fff8fb,
-               #ffffff
-           );
-   
-       color:var(--text);
-   
-   }
-   
-   
-   
-   a {
-   
-       text-decoration:none;
-   
-   }
-   
-   
-   
-   /* ==========================
-      Header
-      ========================== */
-   
-   
-   .main-header {
-   
-       background:
-           rgba(255,255,255,.85);
-   
-       backdrop-filter:blur(12px);
-   
-       padding:18px 60px;
-   
-       display:flex;
-   
-       justify-content:space-between;
-   
-       align-items:center;
-   
-       position:sticky;
-   
-       top:0;
-   
-       z-index:100;
-   
-       box-shadow:
-   
-           0 5px 20px rgba(0,0,0,.05);
-   
-   }
-   
-   
-   
-   .logo {
-   
-       font-size:1.8rem;
-   
-       font-weight:700;
-   
-       color:var(--pink-dark);
-   
-   }
-   
-   
-   
-   .navigation {
-   
-       display:flex;
-   
-       gap:35px;
-   
-   }
-   
-   
-   
-   .nav-link {
-   
-       font-weight:500;
-   
-       color:var(--text);
-   
-       transition:.3s;
-   
-   }
-   
-   
-   
-   .nav-link:hover {
-   
-       color:var(--pink-dark);
-   
-   }
-   
-   
-   
-   /* ==========================
-      Hero
-      ========================== */
-   
-   
-   .hero-section {
-   
-       min-height:520px;
-   
-       margin:40px auto;
-   
-       max-width:1200px;
-   
-       border-radius:40px;
-   
-   
-       display:flex;
-   
-       align-items:center;
-   
-       justify-content:center;
-   
-   
-       background:
-   
-       linear-gradient(
-           135deg,
-           #ffe8ef,
-           #ffffff,
-           #e8f7ed
-       );
-   
-   
-       padding:50px;
-   
-   
-   }
-   
-   
-   
-   .hero-content {
-   
-       text-align:center;
-   
-       max-width:750px;
-   
-   }
-   
-   
-   
-   .hero-content h1 {
-   
-       font-size:3.5rem;
-   
-       line-height:1.2;
-   
-       color:#d87899;
-   
-   }
-   
-   
-   
-   .hero-content p {
-   
-       font-size:1.15rem;
-   
-       margin-top:20px;
-   
-       color:#665961;
-   
-   }
-   
-   
-   
-   /* ==========================
-      Buttons
-      ========================== */
-   
-   
-   .hero-buttons {
-   
-       margin-top:35px;
-   
-       display:flex;
-   
-       justify-content:center;
-   
-       gap:20px;
-   
-   }
-   
-   
-   
-   .primary-button,
-   .secondary-button {
-   
-   
-       padding:14px 32px;
-   
-       border-radius:50px;
-   
-       font-weight:600;
-   
-       transition:.3s;
-   
-   }
-   
-   
-   
-   .primary-button {
-   
-       background:var(--pink);
-   
-       color:white;
-   
-   }
-   
-   
-   
-   .primary-button:hover {
-   
-       background:var(--pink-dark);
-   
-       transform:translateY(-3px);
-   
-   }
-   
-   
-   
-   .secondary-button {
-   
-       background:var(--green);
-   
-       color:white;
-   
-   }
-   
-   
-   
-   .secondary-button:hover {
-   
-       background:var(--green-dark);
-   
-       transform:translateY(-3px);
-   
-   }
-   
-   
-   
-   
-   /* ==========================
-      Sections
-      ========================== */
-   
-   
-   .featured-section,
-   .page-container {
-   
-       max-width:1200px;
-   
-       margin:auto;
-   
-       padding:40px 25px;
-   
-   }
-   
-   
-   
-   .featured-section h2 {
-   
-       text-align:center;
-   
-       font-size:2.2rem;
-   
-       color:#d87899;
-   
-   }
-   
-   
-   
-   /* ==========================
-      Pet Cards
-      ========================== */
-   
-   
-   .pet-grid {
-   
-       display:grid;
-   
-       grid-template-columns:
-   
-       repeat(
-           auto-fit,
-           minmax(280px,1fr)
-       );
-   
-   
-       gap:35px;
-   
-   }
-   
-   
-   
-   .pet-card {
-   
-       background:white;
-   
-       border-radius:30px;
-   
-       overflow:hidden;
-   
-       box-shadow:var(--shadow);
-   
-       transition:.35s;
-   
-   }
-   
-   
-   
-   .pet-card:hover {
-   
-       transform:
-   
-       translateY(-10px);
-   
-   }
-   
-   
-   
-   .pet-card img {
-   
-       width:100%;
-   
-       height:280px;
-   
-       object-fit:cover;
-   
-   }
-   
-   
-   
-   .pet-card-content {
-   
-       padding:25px;
-   
-   }
-   
-   
-   
-   .pet-card h3 {
-   
-       font-size:1.5rem;
-   
-       color:#d87899;
-   
-   }
-   
-   
-   
-   .pet-card p {
-   
-       margin:8px 0;
-   
-   }
-   
-   
-   
-   
-   /* ==========================
-      Details
-      ========================== */
-   
-   
-   .details-container {
-   
-       max-width:1000px;
-   
-       margin:60px auto;
-   
-       background:white;
-   
-       border-radius:35px;
-   
-       padding:40px;
-   
-       display:grid;
-   
-       grid-template-columns:1fr 1fr;
-   
-       gap:40px;
-   
-       box-shadow:var(--shadow);
-   
-   }
-   
-   
-   
-   .details-image img {
-   
-       width:100%;
-   
-       border-radius:30px;
-   
-   }
-   
-   
-   
-   /* ==========================
-      Footer
-      ========================== */
-   
-   
-   .main-footer {
-   
-       background:
-   
-       #fff0f5;
-   
-       padding:25px;
-   
-       text-align:center;
-   
-       margin-top:50px;
-   
-   }
-   
-   
-   
-   /* ==========================
-      Mobile
-      ========================== */
-   
-   
-   @media(max-width:768px){
-   
-   
-       .main-header {
-   
-           padding:20px;
-   
-           flex-direction:column;
-   
-           gap:20px;
-   
-       }
-   
-   
-       .hero-content h1 {
-   
-           font-size:2.3rem;
-   
-       }
-   
-   
-       .details-container {
-   
-           grid-template-columns:1fr;
-   
-       }
-   
-   
-   }
+
+:root {
+
+    --pink: #f7bfd2;
+    --pink-dark: #df8fae;
+    --pink-light: #fff0f5;
+
+    --green: #b7dfc5;
+    --green-dark: #79b98b;
+    --green-light: #edf9f0;
+
+    --white: #ffffff;
+
+    --background: #fffafc;
+
+    --text: #51464b;
+
+    --shadow:
+        0 12px 30px rgba(190, 130, 150, .18);
+
+}
+
+
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+
+
+html,
+body {
+
+    margin: 0;
+
+    padding: 0;
+
+    font-family: 'Poppins', sans-serif;
+
+    background: var(--background);
+
+    color: var(--text);
+
+}
+
+
+
+a {
+
+    text-decoration: none;
+
+}
+
+
+
+/* ==========================================
+   Layout
+   ========================================== */
+
+
+.app-container {
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+
+
+main {
+
+    flex:1;
+
+}
+
+
+
+/* ==========================================
+   Header
+   ========================================== */
+
+
+.main-header {
+
+    background:white;
+
+    padding:20px 60px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+    box-shadow:var(--shadow);
+
+}
+
+
+
+.logo {
+
+    font-size:1.7rem;
+
+    font-weight:700;
+
+    color:var(--pink-dark);
+
+}
+
+
+
+/* ==========================================
+   Navigation
+   ========================================== */
+
+
+.navigation {
+
+    display:flex;
+
+    gap:30px;
+
+}
+
+
+
+.nav-link {
+
+    color:var(--text);
+
+    font-weight:500;
+
+    padding:8px 15px;
+
+    border-radius:20px;
+
+    transition:.3s;
+
+}
+
+
+
+.nav-link:hover {
+
+    color:var(--pink-dark);
+
+}
+
+
+
+.nav-link.active {
+
+    background:var(--pink);
+
+    color:white;
+
+}
+
+
+
+/* ==========================================
+   Hero
+   ========================================== */
+
+
+.hero-section {
+
+    max-width:1200px;
+
+    margin:50px auto;
+
+    padding:70px 30px;
+
+    border-radius:40px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ffe8f0,
+        white,
+        #eaf8ef
+    );
+
+
+    text-align:center;
+
+}
+
+
+
+.hero-content {
+
+    max-width:750px;
+
+    margin:auto;
+
+}
+
+
+
+.hero-content h1 {
+
+    font-size:3.3rem;
+
+    color:var(--pink-dark);
+
+}
+
+
+
+.hero-content p {
+
+    font-size:1.15rem;
+
+}
+
+
+
+
+
+/* ==========================================
+   Buttons
+   ========================================== */
+
+
+.primary-button,
+.secondary-button,
+.adopt-button,
+.disabled-button {
+
+
+    display:inline-block;
+
+    border:none;
+
+    padding:14px 30px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+.primary-button {
+
+    background:var(--pink);
+
+    color:white;
+
+}
+
+
+
+.primary-button:hover {
+
+    background:var(--pink-dark);
+
+    transform:translateY(-3px);
+
+}
+
+
+
+.secondary-button {
+
+    background:var(--green);
+
+    color:white;
+
+}
+
+
+
+.secondary-button:hover {
+
+    background:var(--green-dark);
+
+}
+
+
+
+.adopt-button {
+
+    background:var(--green-dark);
+
+    color:white;
+
+}
+
+
+
+.disabled-button {
+
+    background:#ddd;
+
+    color:#888;
+
+}
+
+
+
+/* ==========================================
+   Sections
+   ========================================== */
+
+
+.page-container,
+.featured-section,
+.why-adopt-section {
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:40px 25px;
+
+}
+
+
+
+.page-header {
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+
+
+.page-header h1 {
+
+    color:var(--pink-dark);
+
+    font-size:2.4rem;
+
+}
+
+
+
+.page-header p {
+
+    font-size:1.1rem;
+
+}
+
+
+
+/* ==========================================
+   Pet Grid
+   ========================================== */
+
+
+.pet-grid {
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(280px,1fr)
+    );
+
+    gap:35px;
+
+}
+
+
+
+/* ==========================================
+   Pet Cards
+   ========================================== */
+
+
+.pet-card {
+
+    background:white;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+    transition:.3s;
+
+}
+
+
+
+.pet-card:hover {
+
+    transform:translateY(-8px);
+
+}
+
+
+
+.pet-image-container {
+
+    position:relative;
+
+}
+
+
+
+.pet-image-container img {
+
+    width:100%;
+
+    height:280px;
+
+    object-fit:cover;
+
+}
+
+
+
+.pet-badges {
+
+    position:absolute;
+
+    bottom:15px;
+
+    left:15px;
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+
+
+.pet-card-content {
+
+    padding:25px;
+
+}
+
+
+
+.pet-card h3 {
+
+    color:var(--pink-dark);
+
+    font-size:1.5rem;
+
+}
+
+
+
+/* ==========================================
+   Badges
+   ========================================== */
+
+
+.badge {
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    font-size:.85rem;
+
+    font-weight:600;
+
+}
+
+
+
+.badge-dog {
+
+    background:#ffe2ec;
+
+}
+
+
+
+.badge-cat {
+
+    background:#e8f7ed;
+
+}
+
+
+
+.badge-available {
+
+    background:#cdeed6;
+
+}
+
+
+
+.badge-adopted {
+
+    background:#ffd4dc;
+
+}
+
+
+
+/* ==========================================
+   Details
+   ========================================== */
+
+
+.details-container {
+
+    max-width:1000px;
+
+    margin:60px auto;
+
+    background:white;
+
+    border-radius:35px;
+
+    padding:40px;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:40px;
+
+    box-shadow:var(--shadow);
+
+}
+
+
+
+.details-image img {
+
+    width:100%;
+
+    border-radius:30px;
+
+}
+
+
+
+.details-badges {
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+
+
+/* ==========================================
+   Info Cards
+   ========================================== */
+
+
+.info-grid,
+.about-content,
+.contact-container {
+
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(250px,1fr)
+    );
+
+    gap:30px;
+
+}
+
+
+
+.info-card,
+.about-card,
+.contact-card {
+
+
+    background:white;
+
+    padding:30px;
+
+    text-align:center;
+
+    border-radius:30px;
+
+    box-shadow:var(--shadow);
+
+}
+
+
+
+.info-icon,
+.about-icon,
+.contact-icon {
+
+    font-size:3rem;
+
+}
+
+
+
+/* ==========================================
+   Results
+   ========================================== */
+
+
+.results-summary {
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+}
+
+
+
+.results-badge {
+
+
+    background:var(--green-light);
+
+    padding:10px 25px;
+
+    border-radius:30px;
+
+}
+
+
+
+/* ==========================================
+   Footer
+   ========================================== */
+
+
+.main-footer {
+
+    background:var(--pink-light);
+
+    padding:25px;
+
+    text-align:center;
+
+}
+
+
+
+/* ==========================================
+   Mobile
+   ========================================== */
+
+
+@media(max-width:768px){
+
+
+    .main-header {
+
+        flex-direction:column;
+
+        gap:20px;
+
+        padding:25px;
+
+    }
+
+
+
+    .navigation {
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+    }
+
+
+
+    .hero-content h1 {
+
+        font-size:2.2rem;
+
+    }
+
+
+
+    .details-container {
+
+        grid-template-columns:1fr;
+
+        margin:30px 20px;
+
+    }
+
+
+}
