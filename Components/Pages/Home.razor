@@ -1,7 +1,5 @@
 @page "/"
 
-@inject PetService PetService
-
 <PageTitle>Adoption Center</PageTitle>
 
 <HeroBanner />
@@ -14,7 +12,7 @@
 
     <div class="pet-grid">
 
-        @foreach (var pet in featuredPets)
+        @foreach (var pet in FeaturedPets)
         {
             <PetCard Pet="pet" />
         }
@@ -86,16 +84,6 @@
 
 </section>
 
-@code {
-
-    private List<Pet> featuredPets = new();
-
-    protected override void OnInitialized()
-    {
-        featuredPets = PetService
-            .GetAllPets()
-            .Take(6)
-            .ToList();
     }
 
 }
