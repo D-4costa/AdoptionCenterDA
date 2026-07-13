@@ -1,37 +1,45 @@
 @page "/cats"
 
-@inject PetService PetService
-
 <PageTitle>Cats | Adoption Center</PageTitle>
 
 <div class="page-container">
 
-    <section class="page-header">
-        <h1>Cats Looking for a Home 🐱</h1>
-        <p>
-            Meet our adorable cats waiting for a loving family.
-        </p>
-    </section>
+    <SectionTitle
+        Title="Cats Looking for a Loving Home 🐱"
+        Subtitle="Meet our adorable cats waiting for a caring family." />
 
+    <div class="results-summary">
 
-    <div class="pet-grid">
+        <span class="results-badge">
 
-        @foreach (var cat in cats)
-        {
-            <PetCard Pet="cat" />
-        }
+            @Cats.Count cat(s) available for adoption
+
+        </span>
 
     </div>
 
-</div>
-
-
-@code {
-    private List<Pet> cats = new();
-
-
-    protected override void OnInitialized()
+    @if (Cats.Any())
     {
-        cats = PetService.GetCats();
+        <div class="pet-grid">
+
+            @foreach (var cat in Cats)
+            {
+                <PetCard Pet="cat" />
+            }
+
+        </div>
     }
-}
+    else
+    {
+        <div class="empty-state">
+
+            <h3>No cats available right now.</h3>
+
+            <p>
+                Please check back later. New pets arrive frequently!
+            </p>
+
+        </div>
+    }
+
+</div>
