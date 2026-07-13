@@ -1,0 +1,40 @@
+<span class="@BadgeClass">
+
+    @if (Type == "Dog")
+    {
+        <span>🐶 Dog</span>
+    }
+    else if (Type == "Cat")
+    {
+        <span>🐱 Cat</span>
+    }
+    else if (Type == "Available")
+    {
+        <span>💚 Available</span>
+    }
+    else if (Type == "Adopted")
+    {
+        <span>❤️ Adopted</span>
+    }
+    else
+    {
+        <span>@Type</span>
+    }
+
+</span>
+
+@code {
+
+    [Parameter]
+    public string Type { get; set; } = "";
+
+    private string BadgeClass => Type switch
+    {
+        "Dog" => "badge badge-dog",
+        "Cat" => "badge badge-cat",
+        "Available" => "badge badge-available",
+        "Adopted" => "badge badge-adopted",
+        _ => "badge"
+    };
+
+}
