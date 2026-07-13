@@ -1,6 +1,10 @@
-﻿@inherits LayoutComponentBase
+@inherits LayoutComponentBase
 
 <div class="app-container">
+
+    <!-- =========================
+         Header
+    ========================== -->
 
     <header class="main-header">
 
@@ -12,28 +16,26 @@
 
         </div>
 
-
         <NavMenu />
 
     </header>
 
 
+    <!-- =========================
+         Main Content
+    ========================== -->
 
-    <main>
+    <main class="main-content">
 
         @Body
 
     </main>
 
 
+    <!-- =========================
+         Footer
+    ========================== -->
 
-    <footer class="main-footer">
-
-        <p>
-            © @DateTime.Now.Year Adoption Center.
-            Helping pets find loving homes 🐶🐱
-        </p>
-
-    </footer>
+    <Footer />
 
 </div>
