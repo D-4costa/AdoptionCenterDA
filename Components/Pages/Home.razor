@@ -1,40 +1,101 @@
-﻿@page "/"
+@page "/"
 
 @inject PetService PetService
 
 <PageTitle>Adoption Center</PageTitle>
 
-<div class="home-container">
+<HeroBanner />
 
-    <h1>
-        Welcome to Adoption Center 🐾
-    </h1>
+<section class="featured-section">
 
-    <p>
-        Find your new best friend and give a pet a loving home.
-    </p>
+    <SectionTitle
+        Title="Featured Pets"
+        Subtitle="Meet some of our adorable pets currently looking for a loving home." />
 
+    <div class="pet-grid">
 
-    <div class="pets-grid">
-
-        @foreach (var pet in pets)
+        @foreach (var pet in featuredPets)
         {
             <PetCard Pet="pet" />
         }
 
     </div>
 
-</div>
+</section>
 
+<section class="why-adopt-section">
+
+    <SectionTitle
+        Title="Why Adopt?"
+        Subtitle="Adopting a pet changes lives, including your own." />
+
+    <div class="info-grid">
+
+        <div class="info-card">
+
+            <div class="info-icon">
+                ❤️
+            </div>
+
+            <h3>
+                Save a Life
+            </h3>
+
+            <p>
+                Every adoption gives a pet the opportunity to start a new chapter
+                with a caring family.
+            </p>
+
+        </div>
+
+        <div class="info-card">
+
+            <div class="info-icon">
+                🏡
+            </div>
+
+            <h3>
+                Find a Best Friend
+            </h3>
+
+            <p>
+                Pets provide companionship, loyalty, and unconditional love for
+                many years.
+            </p>
+
+        </div>
+
+        <div class="info-card">
+
+            <div class="info-icon">
+                🌎
+            </div>
+
+            <h3>
+                Make a Difference
+            </h3>
+
+            <p>
+                By adopting instead of shopping, you help reduce the number of
+                homeless animals.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
 
 @code {
 
-    private List<Pet> pets = new();
-
+    private List<Pet> featuredPets = new();
 
     protected override void OnInitialized()
     {
-        pets = PetService.GetAllPets();
+        featuredPets = PetService
+            .GetAllPets()
+            .Take(6)
+            .ToList();
     }
 
 }
