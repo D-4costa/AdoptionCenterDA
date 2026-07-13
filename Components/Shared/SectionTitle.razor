@@ -1,0 +1,28 @@
+<section class="page-header">
+
+    <span class="section-decoration">
+        🐾
+    </span>
+
+    <h1>
+        @Title
+    </h1>
+
+    @if (!string.IsNullOrWhiteSpace(Subtitle))
+    {
+        <p>
+            @Subtitle
+        </p>
+    }
+
+</section>
+
+@code {
+
+    [Parameter]
+    public string Title { get; set; } = string.Empty;
+
+    [Parameter]
+    public string Subtitle { get; set; } = string.Empty;
+
+}
