@@ -1,5 +1,8 @@
 @inherits LayoutComponentBase
 
+@using Microsoft.AspNetCore.Components.Authorization
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
 <div class="app-container">
 
     <!-- =========================
@@ -15,6 +18,15 @@
             </a>
 
         </div>
+
+        @if (IsAuthenticated)
+        {
+            <div class="welcome-user">
+
+                Welcome, @UserName 💚
+
+            </div>
+        }
 
         <NavMenu />
 
@@ -39,3 +51,25 @@
     <Footer />
 
 </div>
+
+@code
+{
+    private bool IsAuthenticated;
+
+    private string UserName = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState =
+            await AuthenticationStateProvider.GetAuthenticationStateAsync();
+
+        var user = authState.User;
+
+        IsAuthenticated = user.Identity?.IsAuthenticated ?? false;
+
+        if (IsAuthenticated)
+        {
+            UserName = user.Identity?.Name ?? "User";
+        }
+    }
+}
