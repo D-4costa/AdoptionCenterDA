@@ -54,17 +54,19 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddAuthorization();
 
 
-// Services
+// Application Services
 
 builder.Services.AddSingleton<IPetService, PetService>();
 
 builder.Services.AddScoped<IAuthService, AuthService>();
 
+builder.Services.AddScoped<IAdoptionService, AdoptionService>();
+
 
 var app = builder.Build();
 
 
-// Configure HTTP pipeline
+// Configure HTTP Request Pipeline
 
 if (!app.Environment.IsDevelopment())
 {
