@@ -1,0 +1,119 @@
+@page "/register"
+
+@using AdoptionCenterDA.Web.Models
+@inject IAuthService AuthService
+@inject NavigationManager Navigation
+
+<PageTitle>Register</PageTitle>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <div class="card shadow border-0 rounded-4">
+
+                <div class="card-header text-center bg-light">
+                    <h2 class="fw-bold text-success">
+                        Create an Account
+                    </h2>
+                    <p class="text-muted mb-0">
+                        Join our Adoption Center
+                    </p>
+                </div>
+
+                <div class="card-body p-4">
+
+                    <EditForm Model="@model"
+                              OnValidSubmit="Register">
+
+                        <DataAnnotationsValidator />
+
+                        <ValidationSummary />
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Full Name
+                            </label>
+
+                            <InputText
+                                class="form-control"
+                                @bind-Value="model.FullName" />
+
+                            <ValidationMessage
+                                For="@(() => model.FullName)" />
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Email
+                            </label>
+
+                            <InputText
+                                class="form-control"
+                                @bind-Value="model.Email" />
+
+                            <ValidationMessage
+                                For="@(() => model.Email)" />
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Password
+                            </label>
+
+                            <InputText
+                                class="form-control"
+                                type="password"
+                                @bind-Value="model.Password" />
+
+                            <ValidationMessage
+                                For="@(() => model.Password)" />
+
+                        </div>
+
+                        <div class="mb-4">
+
+                            <label class="form-label">
+                                Confirm Password
+                            </label>
+
+                            <InputText
+                                class="form-control"
+                                type="password"
+                                @bind-Value="model.ConfirmPassword" />
+
+                            <ValidationMessage
+                                For="@(() => model.ConfirmPassword)" />
+
+                        </div>
+
+                        @if (!string.IsNullOrWhiteSpace(ErrorMessage))
+                        {
+                            <div class="alert alert-danger">
+                                @ErrorMessage
+                            </div>
+                        }
+
+                        <button
+                            class="btn btn-success w-100">
+
+                            Register
+
+                        </button>
+
+                    </EditForm>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
