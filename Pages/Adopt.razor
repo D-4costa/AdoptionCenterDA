@@ -1,0 +1,121 @@
+@page "/adopt/{PetId:int}"
+@attribute [Authorize]
+
+@using AdoptionCenterDA.Web.Models
+
+<PageTitle>Adopt a Pet</PageTitle>
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-7">
+
+            <div class="card shadow border-0 rounded-4">
+
+                <div class="card-header text-center">
+
+                    <h2 class="fw-bold text-success">
+                        Adoption Request
+                    </h2>
+
+                    <p class="text-muted">
+                        Complete the form below to request adoption.
+                    </p>
+
+                </div>
+
+                <div class="card-body p-4">
+
+                    <EditForm Model="Request"
+                              OnValidSubmit="SubmitRequestAsync">
+
+                        <DataAnnotationsValidator />
+
+                        <ValidationSummary />
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Full Name
+                            </label>
+
+                            <InputText class="form-control"
+                                       @bind-Value="Request.FullName" />
+
+                            <ValidationMessage For="@(() => Request.FullName)" />
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Email
+                            </label>
+
+                            <InputText class="form-control"
+                                       @bind-Value="Request.Email" />
+
+                            <ValidationMessage For="@(() => Request.Email)" />
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Phone
+                            </label>
+
+                            <InputText class="form-control"
+                                       @bind-Value="Request.Phone" />
+
+                            <ValidationMessage For="@(() => Request.Phone)" />
+
+                        </div>
+
+                        <div class="mb-4">
+
+                            <label class="form-label">
+                                Why would you like to adopt this pet?
+                            </label>
+
+                            <InputTextArea class="form-control"
+                                           rows="5"
+                                           @bind-Value="Request.Message" />
+
+                            <ValidationMessage For="@(() => Request.Message)" />
+
+                        </div>
+
+                        @if (!string.IsNullOrWhiteSpace(SuccessMessage))
+                        {
+                            <div class="alert alert-success">
+                                @SuccessMessage
+                            </div>
+                        }
+
+                        @if (!string.IsNullOrWhiteSpace(ErrorMessage))
+                        {
+                            <div class="alert alert-danger">
+                                @ErrorMessage
+                            </div>
+                        }
+
+                        <button class="btn btn-success w-100"
+                                type="submit">
+
+                            Submit Adoption Request
+
+                        </button>
+
+                    </EditForm>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
