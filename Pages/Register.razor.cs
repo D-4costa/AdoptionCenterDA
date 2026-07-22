@@ -1,18 +1,17 @@
 using AdoptionCenterDA.Web.Models;
 using AdoptionCenterDA.Web.Services;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Identity;
 
 namespace AdoptionCenterDA.Web.Pages;
 
-public class RegisterBase : ComponentBase
+public partial class Register
 {
     [Inject]
-    protected IAuthService AuthService { get; set; } = default!;
+    private IAuthService AuthService { get; set; } = default!;
 
     [Inject]
-    protected NavigationManager Navigation { get; set; } = default!;
+    private NavigationManager Navigation { get; set; } = default!;
 
     protected RegisterModel RegisterModel { get; set; } = new();
 
@@ -35,6 +34,6 @@ public class RegisterBase : ComponentBase
 
         ErrorMessage = string.Join(
             Environment.NewLine,
-            result.Errors.Select(e => e.Description));
+            result.Errors.Select(error => error.Description));
     }
 }
