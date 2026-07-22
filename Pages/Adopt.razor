@@ -1,7 +1,8 @@
 @page "/adopt/{PetId:int}"
-@attribute [Authorize]
-
+@using Microsoft.AspNetCore.Authorization
 @using AdoptionCenterDA.Web.Models
+
+@attribute [Authorize]
 
 <PageTitle>Adopt a Pet</PageTitle>
 
