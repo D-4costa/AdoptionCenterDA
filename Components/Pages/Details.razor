@@ -1,135 +1,29 @@
-@page "/details/{Id:int}"
-
-<PageTitle>Pet Details | Adoption Center</PageTitle>
-
-
-@if (Pet == null)
+@if (Pet.IsAdopted)
 {
-    <div class="page-container empty-state">
+    <button class="disabled-button" disabled>
 
-        <h1>
-            Pet not found 🐾
-        </h1>
+        Already Adopted ❤️
 
-        <p>
-            We could not find the pet you are looking for.
-        </p>
-
-        <a href="/" class="secondary-button">
-
-            Return Home
-
-        </a>
-
-    </div>
+    </button>
 }
 else
 {
+    @if (IsAuthenticated)
+    {
+        <a href="/adopt/@Pet.Id"
+           class="adopt-button">
 
-    <div class="details-container">
+            Request Adoption 🏡
 
+        </a>
+    }
+    else
+    {
+        <a href="/login"
+           class="adopt-button">
 
-        <div class="details-image">
+            Login to Adopt 🐾
 
-            <img src="@Pet.ImageUrl"
-                 alt="@Pet.Name" />
-
-        </div>
-
-
-
-        <div class="details-content">
-
-
-            <div class="details-badges">
-
-                <PetBadge Type="@Pet.Type" />
-
-                @if (Pet.IsAdopted)
-                {
-                    <PetBadge Type="Adopted" />
-                }
-                else
-                {
-                    <PetBadge Type="Available" />
-                }
-
-            </div>
-
-
-
-            <h1>
-                @Pet.Name
-            </h1>
-
-
-
-            <p class="pet-description">
-
-                @Pet.Description
-
-            </p>
-
-
-
-            <div class="pet-information">
-
-
-                <p>
-                    <strong>Breed:</strong>
-                    @Pet.Breed
-                </p>
-
-
-                <p>
-                    <strong>Age:</strong>
-                    @Pet.Age year(s)
-                </p>
-
-
-                <p>
-                    <strong>Gender:</strong>
-                    @Pet.Gender
-                </p>
-
-
-            </div>
-
-
-
-            @if (Pet.IsAdopted)
-            {
-                <button class="disabled-button"
-                        disabled>
-
-                    Already Adopted ❤️
-
-                </button>
-            }
-            else
-            {
-                <button class="adopt-button">
-
-                    Request Adoption 🏡
-
-                </button>
-            }
-
-
-
-            <br />
-            <br />
-
-            <a href="/" class="secondary-button">
-
-                ← Back to Pets
-
-            </a>
-
-
-        </div>
-
-
-    </div>
-
+        </a>
+    }
 }
