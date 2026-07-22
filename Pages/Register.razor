@@ -1,7 +1,6 @@
 @page "/register"
 
 @using AdoptionCenterDA.Web.Models
-@inherits RegisterBase
 
 <PageTitle>Register</PageTitle>
 
@@ -15,11 +14,11 @@
 
                 <div class="card-header text-center">
 
-                    <h2 class="fw-bold">
+                    <h2 class="fw-bold text-success">
                         Create an Account
                     </h2>
 
-                    <p class="text-muted mb-0">
+                    <p class="text-muted">
                         Join our Pet Adoption Center
                     </p>
 
@@ -40,12 +39,10 @@
                                 Full Name
                             </label>
 
-                            <InputText
-                                class="form-control"
-                                @bind-Value="RegisterModel.FullName" />
+                            <InputText class="form-control"
+                                       @bind-Value="RegisterModel.FullName" />
 
-                            <ValidationMessage
-                                For="@(() => RegisterModel.FullName)" />
+                            <ValidationMessage For="@(() => RegisterModel.FullName)" />
 
                         </div>
 
@@ -55,12 +52,10 @@
                                 Email
                             </label>
 
-                            <InputText
-                                class="form-control"
-                                @bind-Value="RegisterModel.Email" />
+                            <InputText class="form-control"
+                                       @bind-Value="RegisterModel.Email" />
 
-                            <ValidationMessage
-                                For="@(() => RegisterModel.Email)" />
+                            <ValidationMessage For="@(() => RegisterModel.Email)" />
 
                         </div>
 
@@ -70,13 +65,11 @@
                                 Password
                             </label>
 
-                            <InputText
-                                class="form-control"
-                                type="password"
-                                @bind-Value="RegisterModel.Password" />
+                            <InputText class="form-control"
+                                       type="password"
+                                       @bind-Value="RegisterModel.Password" />
 
-                            <ValidationMessage
-                                For="@(() => RegisterModel.Password)" />
+                            <ValidationMessage For="@(() => RegisterModel.Password)" />
 
                         </div>
 
@@ -86,26 +79,23 @@
                                 Confirm Password
                             </label>
 
-                            <InputText
-                                class="form-control"
-                                type="password"
-                                @bind-Value="RegisterModel.ConfirmPassword" />
+                            <InputText class="form-control"
+                                       type="password"
+                                       @bind-Value="RegisterModel.ConfirmPassword" />
 
-                            <ValidationMessage
-                                For="@(() => RegisterModel.ConfirmPassword)" />
+                            <ValidationMessage For="@(() => RegisterModel.ConfirmPassword)" />
 
                         </div>
 
-                        @if (!string.IsNullOrWhiteSpace(ErrorMessage))
+                        @if (!string.IsNullOrEmpty(ErrorMessage))
                         {
                             <div class="alert alert-danger">
                                 @ErrorMessage
                             </div>
                         }
 
-                        <button
-                            class="btn btn-success w-100"
-                            type="submit">
+                        <button class="btn btn-success w-100"
+                                type="submit">
 
                             Register
 
